@@ -18,40 +18,43 @@ public class ColoringnationHomepage extends TestBase {
 	public ColoringnationHomepage() {
 		PageFactory.initElements(wd, this);
 	}
-	
+
 	Actions action = new Actions(wd);
 	Scanner sc = new Scanner(System.in);
 
-	@FindBy(xpath = "href=\"/paw-patrol-coloring-pages\"")
+	private String name = "";
+
+	@FindBy(css = "#recommended> div>p>a[href='/paw-patrol-coloring-pages']")
 	private WebElement pawPatrol;
-	
+
 	@FindBy(css = "#fs-sticky-footer button[aria-label='Close Ad']")
 	private WebElement stickyFooter;
-	
+
 	public void clickStickyFooter() {
 		action.click(stickyFooter);
 	}
 
 	public PawPatrolColoringPage getListOfRecommendedAlbums() {
-		
+
 		List<WebElement> albumList = wd.findElements(By.cssSelector("#recommended> div>p>a"));
 		for (int i = 0; i < albumList.size(); i++) {
 			System.out.println("Album name: " + i + "  " + albumList.get(i).getText());
 
 		}
+		
+		wd.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(pawPatrol));
-		action.moveToElement(pawPatrol);
-		action.click(pawPatrol);
+		action.moveToElement(pawPatrol).perform();
+		action.click(pawPatrol).perform();
 		return new PawPatrolColoringPage();
-//		
+
 //		System.out.println("Which Album number you want to select: ");
 //		name = sc.nextLine();
-//		if(albumList.contains(name)) {
-//			for(int i=0; i< albumList.size();i++) {
-//				int x= i;
-//				action.scrollToElement(albumList.equals(name));
+//		if (albumList.contains(name)) {
+//			for (int i = 0; i < albumList.size(); i++) {
+//				String newName = albumList.get(i).getText() = name;
 //			}
+//		}
 
 	}
-
 }

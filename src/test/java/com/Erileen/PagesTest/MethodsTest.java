@@ -82,7 +82,7 @@ public class MethodsTest extends TestBase {
 				.click();
 
 		wd.navigate().to("https://ca.finance.yahoo.com/");
-//		Thread.sleep(500);
+
 
 		wd.navigate().back();
 
