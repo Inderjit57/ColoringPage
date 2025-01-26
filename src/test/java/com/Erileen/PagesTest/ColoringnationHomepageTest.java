@@ -38,6 +38,8 @@ public class ColoringnationHomepageTest extends TestBase{
 		try {
 			coloringnationHomepage.clickStickyFooter();
 			patrolColoringPage= coloringnationHomepage.getListOfRecommendedAlbums();
+			patrolColoringPage.switchToAlert();
+			
 			patrolColoringPage.clickSkye();
 			sf.assertEquals(wd.getTitle(), "Skye Coloring Page - Coloring Nation", "Not a Skye page");
 			sf.assertAll();
