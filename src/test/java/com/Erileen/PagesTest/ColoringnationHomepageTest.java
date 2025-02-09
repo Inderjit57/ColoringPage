@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.Erileen.BasePackage.TestBase;
-import com.Erileen.Pages.ColoringnationHomepage;
-import com.Erileen.Pages.PawPatrolColoringPage;
+import com.Erileen.ColoringPages.ColoringnationHomepage;
+import com.Erileen.ColoringPages.PawPatrolColoringPage;
 
 public class ColoringnationHomepageTest extends TestBase{
 	
@@ -24,7 +24,6 @@ public class ColoringnationHomepageTest extends TestBase{
 	structureInitialisation();
 	
 	wd.get(properties.getProperty("coloringnation"));
-	wait = new WebDriverWait(wd, Duration.ofMillis(1000));
 
 	wd.manage().window().maximize();
 	
@@ -37,7 +36,8 @@ public class ColoringnationHomepageTest extends TestBase{
 		
 		try {
 			coloringnationHomepage.clickStickyFooter();
-			patrolColoringPage= coloringnationHomepage.getListOfRecommendedAlbums();
+			coloringnationHomepage.getListOfRecommendedAlbums();
+			patrolColoringPage = coloringnationHomepage.clickPawPatrol();
 			patrolColoringPage.switchToAlert();
 			
 			patrolColoringPage.clickSkye();
