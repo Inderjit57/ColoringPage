@@ -1,30 +1,23 @@
 package com.Erileen.PagesTest;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.Erileen.BasePackage.TestBase;
 
 public class MethodsTest extends TestBase {
 
 	Actions action;
-	JavascriptExecutor je;
 
 	@BeforeMethod
 	public void initialisation() {
 		structureInitialisation();
 		wd.get(properties.getProperty("demoQa"));
-		wait = new WebDriverWait(wd, Duration.ofMillis(1000));
 
 		wd.manage().window().maximize();
 
@@ -32,8 +25,6 @@ public class MethodsTest extends TestBase {
 
 	@Test
 	public void basicsTest() throws Exception {
-
-		je = (JavascriptExecutor) wd;
 
 		wait.until(ExpectedConditions.elementToBeClickable(wd.findElement(By.cssSelector(
 				"#app div[class='category-cards'] div[class='card mt-4 top-card']:nth-of-type(1) div[class='card-body']"))));
@@ -82,7 +73,6 @@ public class MethodsTest extends TestBase {
 				.click();
 
 		wd.navigate().to("https://ca.finance.yahoo.com/");
-
 
 		wd.navigate().back();
 
