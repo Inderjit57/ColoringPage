@@ -2,8 +2,10 @@ package com.Erileen.BasePackage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Wait;
@@ -14,9 +16,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TestBase {
 
 	public static WebDriver wd;
-	public static  Wait<WebDriver> wait;
+	public static Wait<WebDriver> wait;
 	public static WebDriverManager webDriverManager;
 	public FileInputStream file;
+	public static JavascriptExecutor je;
 
 	public static Properties properties;
 
@@ -40,7 +43,9 @@ public class TestBase {
 
 		webDriverManager.chromedriver().setup();
 		wd = new ChromeDriver();
-		
+
+		je = (JavascriptExecutor) wd;
+		wait = new WebDriverWait(wd, Duration.ofMillis(1000));
 	}
 
 	public void tearDown() {
