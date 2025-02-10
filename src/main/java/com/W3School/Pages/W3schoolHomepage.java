@@ -51,19 +51,19 @@ public class W3schoolHomepage extends TestBase {
 		}
 			
 		//Work in progress to click on the element after finding in the List
-			Iterator<String> newListIterator = newList.iterator();
-			Iterator<WebElement> tutorialListIterator = listHtmlAndCss.iterator();
-			
-			while(newListIterator.hasNext()) {
-				if (newList.contains("colors")) {
-					System.out.println("Element found in the list");
-					tutorialListIterator =listHtmlAndCss.iterator();
-					while(tutorialListIterator.hasNext()) {
-						System.out.println(listHtmlAndCss.get(listHtmlAndCss.indexOf("color")));
-					}
-					break;
-				} else
-					continue;
-			}
+//			Iterator<String> newListIterator = newList.iterator();
+//			Iterator<WebElement> tutorialListIterator = listHtmlAndCss.iterator();
+//			
+//			while(newListIterator.hasNext()) {
+//				if (newList.contains("colors")) {
+//					System.out.println("Element found in the list");
+//					tutorialListIterator =listHtmlAndCss.iterator();
+//					while(tutorialListIterator.hasNext()) {
+//						System.out.println(listHtmlAndCss.get(listHtmlAndCss.indexOf("color")));
+//					}
+//					break;
+//				} else
+//					continue;
+//			}
 	}
 }
