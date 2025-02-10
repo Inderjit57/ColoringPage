@@ -40,12 +40,4 @@ public class ColoringnationHomepage extends TestBase {
 		}
 	}
 
-	public PawPatrolColoringPage clickPawPatrol() {
-		wd.navigate().refresh();
-		wait.until(ExpectedConditions.elementToBeClickable(pawPatrol));
-		action.moveToElement(pawPatrol).perform();
-		action.click(pawPatrol).perform();
-
-		return new PawPatrolColoringPage();
-	}
 }
